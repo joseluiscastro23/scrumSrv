@@ -2,7 +2,7 @@
 Backend bootcamp SCRUM App
 
 ---
-#H3 Special Instructions:
+### Special Instructions:
 Requires dbSettings.js file with settings to connecto to database:
 
 ```javascript
