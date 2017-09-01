@@ -1,0 +1,13 @@
+{
+  "name": "scrum-srv",
+  "version": "0.0.0",
+  "description": "scrumSrv",
+  "main": "app.js",
+  "author": {
+    "name": "jose.castro"
+  },
+  "dependencies": {
+    "knex": "^0.13.0",
+    "mssql": "^4.0.4"
+  }
+}
