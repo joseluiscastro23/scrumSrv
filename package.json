@@ -7,6 +7,7 @@
     "name": "Jose Luis Castro."
   },
   "dependencies": {
+    "body-parser": "^1.17.2",
     "ful-ms-svr": "^1.1.2",
     "knex": "^0.13.0",
     "mssql": "^4.0.4"
