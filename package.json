@@ -1,13 +1,12 @@
 {
   "name": "scrum-srv",
   "version": "0.0.0",
-  "description": "scrumSrv a smart soluction from me.",
+  "description": "scrumSrv a smart solution from me.",
   "main": "app.js",
   "author": {
     "name": "Jose Luis Castro."
   },
   "dependencies": {
-    "body-parser": "^1.17.2",
     "ful-ms-svr": "^1.1.2",
     "knex": "^0.13.0",
     "mssql": "^3.3.0"

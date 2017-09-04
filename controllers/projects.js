@@ -25,5 +25,5 @@ module.exports = function (router, db) {
 
     router.put('/projects/:id', (req, res) => {
         res.json({ test: 'put' });
-    })
+    });
 };

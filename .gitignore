@@ -63,3 +63,4 @@ dbSettings.js
 # VisualStudio files
 obj
 .vs
+bin

@@ -5,14 +5,14 @@ let id = 'priority_id';
 
 //Determines if the object is a priority object
 function isValidPriority(priority) {
-    let hasName = typeof priority.name == 'string' && priority.name.trim() != '';
-    let hasValue = typeof priority.value == 'number' && priority.value > 0;
+    let hasName = typeof priority.name === 'string' && priority.name.trim() !== '';
+    let hasValue = typeof priority.value === 'number' && priority.value > 0;
     return hasName && hasValue;
 }
 
 module.exports = function (router, db) {
 
-    //Gets al priorities
+    //Gets all priorities
     router.get('/priorities', (req, res) => {
         let data = db.select(allFields).from(table);
         data.then(function (rows) {
@@ -30,6 +30,8 @@ module.exports = function (router, db) {
                 res.status(400);
                 next(new Error('Priority not found.'));
             }
+        }).catch((err) => {
+            res.status(500).json({ err: err });
         });
     });
 
@@ -37,7 +39,7 @@ module.exports = function (router, db) {
     router.post('/priorities', (req, res, next) => {
         let priority = req.body;
         if (isValidPriority(priority)) {
-            let data = db.insert([{ priority_nm: priority.name, priority_value: priority.value }], '*').into(table);
+            let data = db.insert([{ priority_nm: priority.name, priority_value: priority.value }], allFields).into(table);
             data.then(rows => {
                 res.json(rows);
             });
@@ -55,7 +57,10 @@ module.exports = function (router, db) {
                 res.json(rows);
             });
         } else {
-            res.json({ error: 'Invalid priority object.' });
+            res.status(400).json({
+                error: 'Invalid priority object.',
+                object: priority
+            });
         }
     });
 
@@ -65,7 +70,7 @@ module.exports = function (router, db) {
         data.then(() => {
             res.json({
                 result: true
-            })
+            });
         });
     });
 };
