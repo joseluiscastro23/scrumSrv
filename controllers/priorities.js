@@ -2,70 +2,71 @@
 let table = 'tbl_priority';
 let allFields = ['priority_id as id', 'priority_nm as name', 'priority_value as value'];
 let id = 'priority_id';
+let resource = 'priorities';
 
-//Determines if the object is a priority object
-function isValidPriority(priority) {
-    let hasName = typeof priority.name === 'string' && priority.name.trim() !== '';
-    let hasValue = typeof priority.value === 'number' && priority.value > 0;
+//Determines if the object is a record object
+function isValidRecord(record) {
+    let hasName = typeof record.name === 'string' && record.name.trim() !== '';
+    let hasValue = typeof record.value === 'number' && record.value > 0;
     return hasName && hasValue;
 }
 
 module.exports = function (router, db) {
 
-    //Gets all priorities
-    router.get('/priorities', (req, res) => {
+    //Gets all records
+    router.get(`/${resource}`, (req, res) => {
         let data = db.select(allFields).from(table);
         data.then(function (rows) {
             res.json(rows);
         });
     });
 
-    //Gets a priority by ID
-    router.get('/priorities/:id', tools.isValidId, (req, res, next) => {
+    //Gets a record by ID
+    router.get(`/${resource}/:id`, tools.isValidId, (req, res, next) => {
         let data = db.select(allFields).from(table).where(id, req.params.id);
         data.then(rows => {
             if (rows.length > 0) {
                 res.json(rows);
             } else {
                 res.status(400);
-                next(new Error('Priority not found.'));
+                next(new Error('Record not found.'));
             }
         }).catch((err) => {
             res.status(500).json({ err: err });
         });
     });
 
-    //Adds a new priority
-    router.post('/priorities', (req, res, next) => {
+    //Adds a new record
+    router.post(`/${resource}`, (req, res, next) => {
         let priority = req.body;
-        if (isValidPriority(priority)) {
+        if (isValidRecord(priority)) {
             let data = db.insert([{ priority_nm: priority.name, priority_value: priority.value }], allFields).into(table);
             data.then(rows => {
                 res.json(rows);
             });
         } else {
-            res.json({ error: 'Invalid priority object.' });
+            res.json({ error: 'Invalid record object.' });
         }
     });
 
-    //Updates a priority
-    router.put('/priorities/:id', (req, res, next) => {
+    //Updates a record
+    router.put(`/${resource}/:id`, (req, res, next) => {
         let priority = req.body;
-        if (isValidPriority(priority)) {
+        if (isValidRecord(priority)) {
             let data = db(table).where(id, req.params.id).update({ priority_nm: priority.name, priority_value: priority.value }, allFields);
             data.then(rows => {
                 res.json(rows);
             });
         } else {
             res.status(400).json({
-                error: 'Invalid priority object.',
+                error: 'Invalid record object.',
                 object: priority
             });
         }
     });
 
-    //Deletes a priority
-    router.delete('/priorities/:id', tools.isValidId, (req, res) => {
+    //Deletes a record
+    router.delete(`/${resource}/:id`, tools.isValidId, (req, res) => {
         let data = db(table).where(id, req.params.id).del();
         data.then(() => {
             res.json({
