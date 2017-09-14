@@ -29,6 +29,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="controllers\index.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="controllers\priorities.js">
       <SubType>Code</SubType>
     </Compile>
@@ -36,6 +39,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="dbSettings.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\priorities.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="tools\tools.js">
@@ -52,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="controllers\" />
+    <Folder Include="models\" />
     <Folder Include="tools\" />
     <Folder Include="public\" />
   </ItemGroup>

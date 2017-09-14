@@ -1,8 +1,6 @@
-﻿let tools = require('../tools/tools');
-let table = 'tbl_priority';
-let allFields = ['priority_id as id', 'priority_nm as name', 'priority_value as value'];
-let id = 'priority_id';
-let resource = 'priorities';
+﻿const tools = require('../tools/tools');
+const priorities = require('../models/priorities');
+const resource = 'priorities';
 
 //Determines if the object is a record object
 function isValidRecord(record) {
@@ -11,20 +9,18 @@ function isValidRecord(record) {
     return hasName && hasValue;
 }
 
-module.exports = function (router, db) {
+module.exports = function (router) {
 
     //Gets all records
     router.get(`/${resource}`, (req, res) => {
-        let data = db.select(allFields).from(table);
-        data.then(function (rows) {
+        priorities.getAll().then(function (rows) {
             res.json(rows);
         });
     });
 
     //Gets a record by ID
     router.get(`/${resource}/:id`, tools.isValidId, (req, res, next) => {
-        let data = db.select(allFields).from(table).where(id, req.params.id);
-        data.then(rows => {
+        priorities.getById(req.params.id).then(rows => {
             if (rows.length > 0) {
                 res.json(rows);
             } else {
@@ -40,8 +36,7 @@ module.exports = function (router, db) {
     router.post(`/${resource}`, (req, res, next) => {
         let priority = req.body;
         if (isValidRecord(priority)) {
-            let data = db.insert([{ priority_nm: priority.name, priority_value: priority.value }], allFields).into(table);
-            data.then(rows => {
+            priorities.create(priority).then(rows => {
                 res.json(rows);
             });
         } else {
@@ -53,8 +48,7 @@ module.exports = function (router, db) {
     router.put(`/${resource}/:id`, (req, res, next) => {
         let priority = req.body;
         if (isValidRecord(priority)) {
-            let data = db(table).where(id, req.params.id).update({ priority_nm: priority.name, priority_value: priority.value }, allFields);
-            data.then(rows => {
+            priorities.update(priority).then(rows => {
                 res.json(rows);
             });
         } else {
@@ -67,8 +61,7 @@ module.exports = function (router, db) {
 
     //Deletes a record
     router.delete(`/${resource}/:id`, tools.isValidId, (req, res) => {
-        let data = db(table).where(id, req.params.id).del();
-        data.then(() => {
+        priorities.delete(req.params.id).then(() => {
             res.json({
                 result: true
             });
