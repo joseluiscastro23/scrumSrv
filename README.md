@@ -7,10 +7,12 @@ Requires dbSettings.js file with settings to connecto to database:
 
 ```javascript
 exports.dbScrumSettings = {
-    server: "localhost\\MSSQLSERVER",
-    database: "scrumdb",
-    user: "sa",
-    password: "setYourPasswordHere",
-    port: 1433
-}
+    client: 'mssql',
+    connection: {
+        host: 'localhost\\MSSQLSERVER',
+        user: 'sa',
+        password: 'yourPassword',
+        database: 'scrumdb'
+    }
+};
 ```
