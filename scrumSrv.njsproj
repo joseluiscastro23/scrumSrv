@@ -44,6 +44,9 @@
     <Compile Include="models\priorities.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="models\projects.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="tools\tools.js">
       <SubType>Code</SubType>
     </Compile>

@@ -13,7 +13,7 @@ module.exports = {
 
     getById: (id, fields) => {
 
-        console.assert(!fields || fields instanceof Array, 'Fields must be an Array.');
+         console.assert(!fields || fields instanceof Array, 'Fields must be an Array.');
         return db.select(fields || allFields).from(table).where(idField, id);
     },
 
@@ -22,13 +22,13 @@ module.exports = {
         return db.insert([{ priority_nm: priority.name, priority_value: priority.value }], allFields).into(table);
     },
 
-    update: (priority) => {
+    update: (id, priority) => {
 
-        return db(table).where(id, req.params.id).update({ priority_nm: priority.name, priority_value: priority.value }, allFields);
+        return db(table).where(idFild, id).update({ priority_nm: priority.name, priority_value: priority.value }, allFields);
     },
 
     delete: (id) => {
 
-        return db(table).where(id, req.params.id).del();
+        return db(table).where(idFields, id).del();
     }
 };

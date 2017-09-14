@@ -1,8 +1,6 @@
-﻿let tools = require('../tools/tools');
-let table = 'tbl_project';
-let allFields = ['project_id as id', 'project_nm as name'];
-let id = 'project_id';
-let resource = 'projects';
+﻿const tools = require('../tools/tools');
+const resource = 'projects';
+const projects = require('../models/projects');
 
 //Determines if the object is a record object
 function isValidRecord(record) {
@@ -14,16 +12,16 @@ module.exports = function (router, db) {
 
     //Gets all records
     router.get(`/${resource}`, (req, res) => {
-        let data = db.select(allFields).from(table);
-        data.then(function (rows) {
+
+        projects.getAll().then(function (rows) {
             res.json(rows);
         });
     });
 
     //Gets a record by ID
     router.get(`/${resource}/:id`, tools.isValidId, (req, res, next) => {
-        let data = db.select(allFields).from(table).where(id, req.params.id);
-        data.then(rows => {
+
+        projects.getById(req.params.id).then(rows => {
             if (rows.length > 0) {
                 res.json(rows);
             } else {
@@ -39,8 +37,7 @@ module.exports = function (router, db) {
     router.post(`/${resource}`, (req, res, next) => {
         let project = req.body;
         if (isValidRecord(project)) {
-            let data = db.insert([{ project_nm: project.name }], allFields).into(table);
-            data.then(rows => {
+            projects.create(project).then(rows => {
                 res.json(rows);
             });
         } else {
@@ -52,8 +49,7 @@ module.exports = function (router, db) {
     router.put(`/${resource}/:id`, (req, res, next) => {
         let project = req.body;
         if (isValidRecord(project)) {
-            let data = db(table).where(id, req.params.id).update({ project_nm: project.name }, allFields);
-            data.then(rows => {
+            projects.update(req.params.id, project).then(rows => {
                 res.json(rows);
             });
         } else {
@@ -66,8 +62,7 @@ module.exports = function (router, db) {
 
     //Deletes a record
     router.delete(`/${resource}/:id`, tools.isValidId, (req, res) => {
-        let data = db(table).where(id, req.params.id).del();
-        data.then(() => {
+        projects.delete(req.params.id).then(() => {
             res.json({
                 result: true
             });

@@ -48,7 +48,7 @@ module.exports = function (router) {
     router.put(`/${resource}/:id`, (req, res, next) => {
         let priority = req.body;
         if (isValidRecord(priority)) {
-            priorities.update(priority).then(rows => {
+            priorities.update(req.params.id, priority).then(rows => {
                 res.json(rows);
             });
         } else {
