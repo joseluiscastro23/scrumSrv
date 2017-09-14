@@ -15,8 +15,7 @@ try {
     console.log('Database settings: ');
     console.log(dbSettings.dbScrumSettings);
 
-    require('./controllers')(router);
-    //require('./controllers/priorities')(router);
+    require('./controllers/controllers')(router);
 } catch (ex) {
     console.log(ex);
 }

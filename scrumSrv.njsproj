@@ -29,7 +29,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
-    <Compile Include="controllers\index.js">
+    <Compile Include="controllers\controllers.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="controllers\priorities.js">
