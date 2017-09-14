@@ -24,7 +24,7 @@ module.exports = {
 
     update: (id, project) => {
 
-        return db(table).where(idFields, id).update({ priority_nm: project.name, priority_value: project.value }, allFields);
+        return db(table).where(idField, id).update({ priority_nm: project.name, priority_value: project.value }, allFields);
     },
 
     delete: (id) => {

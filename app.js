@@ -8,14 +8,12 @@ try {
     server.run(port);
 
     server.use(express.static('public'));
-    const router = express.Router();
-    server.use('/api', router);
+    server.use(require('./controllers/controllers'));
 
     const dbSettings = require('./dbSettings');
     console.log('Database settings: ');
     console.log(dbSettings.dbScrumSettings);
 
-    require('./controllers/controllers')(router);
 } catch (ex) {
     console.log(ex);
 }

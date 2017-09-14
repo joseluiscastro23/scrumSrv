@@ -1,5 +1,7 @@
-﻿module.exports = function (router) {
+﻿const express = require('express')
+const router = express.Router()
 
-    require('./priorities')(router);
-    require('./projects')(router);
-}
+router.use('/api', require('./priorities'))
+router.use('/api', require('./projects'))
+
+module.exports = router

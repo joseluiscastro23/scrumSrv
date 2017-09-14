@@ -13,7 +13,7 @@ module.exports = {
 
     getById: (id, fields) => {
 
-         console.assert(!fields || fields instanceof Array, 'Fields must be an Array.');
+        console.assert(!fields || fields instanceof Array, 'Fields must be an Array.');
         return db.select(fields || allFields).from(table).where(idField, id);
     },
 
