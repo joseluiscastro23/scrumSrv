@@ -1,14 +1,26 @@
 {
   "name": "scrum-srv",
   "version": "0.0.0",
-  "description": "scrumSrv a smart solution from me.",
-  "main": "app.js",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "description": "scrumSrv",
   "author": {
-    "name": "Jose Luis Castro."
+    "name": "jose.castro"
   },
   "dependencies": {
-    "ful-ms-svr": "^1.1.2",
+    "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.0",
+    "debug": "^2.2.0",
+    "express": "^4.14.0",
     "knex": "^0.13.0",
-    "mssql": "^3.3.0"
+    "morgan": "^1.7.0",
+    "mssql": "^3.3.0",
+    "pug": "^2.0.0-beta6",
+    "serve-favicon": "^2.3.0"
+  },
+  "engines": {
+    "node": "~6.10.x"
   }
 }
