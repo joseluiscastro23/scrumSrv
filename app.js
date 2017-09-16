@@ -11,7 +11,7 @@ const port = 3000;
 
 const app = express();
 
-app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + '/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
