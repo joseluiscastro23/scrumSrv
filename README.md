@@ -1,5 +1,6 @@
 ﻿# scrumSrv
-Backend bootcamp SCRUM App
+Azure Node.js Express 4 App
+Backend bootcamp SCRUM
 
 ---
 ### Special Instructions:
