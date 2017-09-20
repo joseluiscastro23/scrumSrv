@@ -1,8 +1,7 @@
 ﻿const table = 'tbl_priority';
 const allFields = ['priority_id as id', 'priority_nm as name', 'priority_value as value'];
 const idField = 'priority_id';
-const dbSettings = require('../dbSettings');
-const db = require('knex')(dbSettings.dbScrumSettings);
+const db = require('./dbConnection');
 
 module.exports = {
     getAll: (fields) => {

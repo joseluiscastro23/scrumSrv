@@ -7,13 +7,26 @@ Backend bootcamp SCRUM
 Requires dbSettings.js file with settings to connecto to database:
 
 ```javascript
-exports.dbScrumSettings = {
-    client: 'mssql',
-    connection: {
-        host: 'localhost\\MSSQLSERVER',
-        user: 'sa',
-        password: 'yourPassword',
-        database: 'scrumdb'
+module.exports = {
+    development: {
+        client: 'mssql',
+        connection: {
+            host: 'localhost\\MSSQLSERVER',
+            user: 'sa',
+            password: 'yourPass',
+            database: 'scrumdb',
+            port: 1433
+        }
+    },
+    test: {
+        client: 'mssql',
+        connection: {
+            host: 'localhost\\MSSQLSERVER',
+            user: 'sa',
+            password: 'yourPass',
+            database: 'scrumdbtest',
+            port: 1433
+        }
     }
-};
+}
 ```

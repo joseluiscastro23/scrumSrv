@@ -1,8 +1,7 @@
 ﻿const table = 'tbl_project';
 const allFields = ['project_id as id', 'project_nm as name', 'project_date as date', 'project_description as description'];
 const idField = 'project_id';
-const dbSettings = require('../dbSettings');
-const db = require('knex')(dbSettings.dbScrumSettings);
+const db = require('./dbConnection');
 
 module.exports = {
     getAll: (fields) => {

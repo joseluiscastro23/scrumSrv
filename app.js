@@ -7,6 +7,7 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const environment = process.env.NODE_ENV || 'development';
 const port = 3000;
 
 const app = express();
@@ -55,7 +56,7 @@ app.set('port', port || process.env.PORT);
 
 const dbSettings = require('./dbSettings');
 console.log('Database settings: ');
-console.log(dbSettings.dbScrumSettings);
+console.log(dbSettings[environment]);
 
 let server = app.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + server.address().port);
