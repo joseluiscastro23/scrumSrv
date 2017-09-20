@@ -11,15 +11,14 @@
     "email": "<joseluiscastro23@outlook.com>"
   },
   "dependencies": {
-    "body-parser": "^1.15.0",
-    "cookie-parser": "^1.4.0",
+    "body-parser": "^1.18.1",
+    "cookie-parser": "^1.4.3",
     "debug": "^2.2.0",
     "express": "^4.14.0",
     "knex": "^0.13.0",
-    "morgan": "^1.7.0",
+    "morgan": "^1.8.2",
     "mssql": "^3.3.0",
-    "pug": "^2.0.0-beta6",
-    "serve-favicon": "^2.3.0"
+    "serve-favicon": "^2.4.4"
   },
   "engines": {
     "node": "~6.10.x"
