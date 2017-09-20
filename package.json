@@ -1,13 +1,14 @@
 {
   "name": "scrum-srv",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "node app"
   },
-  "description": "scrumSrv",
+  "description": "scrumSrv: Azure Node.js Express 4 Application",
   "author": {
-    "name": "jose.castro"
+    "name": "Jos� Luis Castro",
+    "email": "<joseluiscastro23@outlook.com>"
   },
   "dependencies": {
     "body-parser": "^1.15.0",
@@ -22,5 +23,10 @@
   },
   "engines": {
     "node": "~6.10.x"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^3.5.3",
+    "supertest": "^3.0.0"
   }
 }

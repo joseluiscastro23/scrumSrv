@@ -58,6 +58,7 @@
     <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="test\" />
     <Folder Include="tools\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
@@ -67,6 +68,9 @@
     <Folder Include="models\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="test\app.test.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config" />
   </ItemGroup>
