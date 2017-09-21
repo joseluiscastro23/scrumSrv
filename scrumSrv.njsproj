@@ -33,6 +33,9 @@
     <Compile Include="controllers\controllers.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="controllers\features.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="controllers\priorities.js">
       <SubType>Code</SubType>
     </Compile>

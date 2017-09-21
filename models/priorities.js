@@ -23,11 +23,11 @@ module.exports = {
 
     update: (id, priority) => {
 
-        return db(table).where(idFild, id).update({ priority_nm: priority.name, priority_value: priority.value }, allFields);
+        return db(table).where(idField, id).update({ priority_nm: priority.name, priority_value: priority.value }, allFields);
     },
 
     delete: (id) => {
 
-        return db(table).where(idFields, id).del();
+        return db(table).where(idField, id).del();
     }
 };
