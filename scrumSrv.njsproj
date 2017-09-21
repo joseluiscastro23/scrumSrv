@@ -45,6 +45,9 @@
     <Compile Include="models\dbConnection.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="models\features.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="models\priorities.js">
       <SubType>Code</SubType>
     </Compile>
