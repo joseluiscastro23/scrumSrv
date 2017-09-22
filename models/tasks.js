@@ -18,7 +18,7 @@ module.exports = {
 
     create: (task) => {
 
-        return db.insert([{ task_nm: task.name, user_id: user_id, task_tags: task.tags, task_state_id: task.state_id, task_area: task.area, task_iteration: task.iteration, task_discussion: task.discussion, task_priority: task.priority, task_remaining_work: task.remaining_work, task_activity_id: task.activity_id, task_blocked: task.blocked, story_id: task.story_id, sprint_id: task.sprint_id }]).into(table);
+        return db.insert([{ task_nm: task.name, user_id: task.user_id, task_tags: task.tags, task_state_id: task.state_id, task_area: task.area, task_iteration: task.iteration, task_discussion: task.discussion, task_priority: task.priority, task_remaining_work: task.remaining_work, task_activity_id: task.activity_id, task_blocked: task.blocked, story_id: task.story_id, sprint_id: task.sprint_id }], allFields).into(table);
     },
 
     update: (id, task) => {

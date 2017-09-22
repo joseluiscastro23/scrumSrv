@@ -6,9 +6,9 @@ const resource = 'tasks';
 
 //Determines if the object is a record object
 function isValidRecord(record) {
-    let hasName = typeof record.name === 'string' && record.name.trim() !== '';
-    let hasValue = typeof record.value === 'number' && record.value > 0;
-    return hasName && hasValue;
+
+    //TODO Validations for accept story record.
+    return true;
 }
 
 //Gets all records
