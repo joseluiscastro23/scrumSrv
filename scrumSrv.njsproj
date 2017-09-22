@@ -45,6 +45,9 @@
     <Compile Include="controllers\sprints.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="controllers\stories.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="dbSettings.js">
       <SubType>Code</SubType>
     </Compile>
@@ -61,6 +64,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="models\sprints.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\stories.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\tasks.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="tools\tools.js">
