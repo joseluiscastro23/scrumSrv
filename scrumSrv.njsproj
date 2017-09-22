@@ -48,6 +48,9 @@
     <Compile Include="controllers\stories.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="controllers\tasks.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="dbSettings.js">
       <SubType>Code</SubType>
     </Compile>

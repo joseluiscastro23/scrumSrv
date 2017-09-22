@@ -18,12 +18,12 @@ module.exports = {
 
     create: (story) => {
 
-        return db.insert([{ priority_nm: story.name, priority_value: story.value }], allFields).into(table);
+        return db.insert([{ story_nm: story.name, user_id: story.user_id, story_tags: story.tags, story_state_id: story.state_id, story_area: story.area, story_iteration: story.iteration, story_acceptance_criteria: story.acceptance_criteria, story_discussion: story.discussion, story_priority: story.priority, story_effort: story.effort, story_business_value: story.business_value, value_area_id: story.value_area_id, feature_id: story.feature_id, story_date: story.date, sprint_id: story.sprint_id }], allFields).into(table);
     },
 
     update: (id, story) => {
 
-        return db(table).where(idField, id).update({ priority_nm: story.name, priority_value: story.value }, allFields);
+        return db(table).where(idField, id).update({ story_nm: story.name, user_id: story.user_id, story_tags: story.tags, story_state_id: story.state_id, story_area: story.area, story_iteration: story.iteration, story_acceptance_criteria: story.acceptance_criteria, story_discussion: story.discussion, story_priority: story.priority, story_effort: story.effort, story_business_value: story.business_value, value_area_id: story.value_area_id, feature_id: story.feature_id, story_date: story.date, sprint_id: story.sprint_id }, allFields);
     },
 
     delete: (id) => {

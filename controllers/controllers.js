@@ -6,5 +6,6 @@ router.use('/api', require('./projects'));
 router.use('/api', require('./features'));
 router.use('/api', require('./sprints'));
 router.use('/api', require('./stories'));
+router.use('/api', require('./tasks'));
 
 module.exports = router;
