@@ -36,6 +36,9 @@
     <Compile Include="controllers\features.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="controllers\features_state.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="controllers\priorities.js">
       <SubType>Code</SubType>
     </Compile>
@@ -58,6 +61,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="models\features.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\features_state.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="models\priorities.js">
