@@ -51,7 +51,16 @@
     <Compile Include="controllers\stories.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="controllers\stories_state.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="controllers\tasks.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="controllers\tasks_activity.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="controllers\tasks_state.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="dbSettings.js">
@@ -78,7 +87,16 @@
     <Compile Include="models\stories.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="models\stories_state.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="models\tasks.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\tasks_activity.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\tasks_state.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="tools\tools.js">
